@@ -1,0 +1,56 @@
+<div cdkDropListGroup id="draggable_container">
+
+
+  <div class="todo-container column-container" *ngFor="let list of todos">
+    <button (click)="addList(list.index)" mat-fab color="primary">
+      <mat-icon>add</mat-icon>
+    </button>
+    <div class="list"
+         cdkDropList
+         [cdkDropListData]="list.items"
+         (cdkDropListDropped)="onDrop($event)">
+      <h2>{{ list.title }}</h2>
+      <mat-card *ngFor="let item of list.items" cdkDrag>
+        <mat-card-header>
+          <mat-card-title>{{ item.title }}</mat-card-title>
+          <!--<mat-card-subtitle></mat-card-subtitle>-->
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ item.description }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <!--<div class="done-container column-container">-->
+    <!--<div class="list"-->
+         <!--cdkDropList-->
+         <!--#doneList="cdkDropList"-->
+         <!--[cdkDropListData]="completed"-->
+         <!--(cdkDropListDropped)="onDrop($event)">-->
+      <!--<h2>Tech learned</h2>-->
+      <!--<mat-card *ngFor="let complete of completed" cdkDrag>-->
+        <!--<mat-card-header>-->
+          <!--<mat-card-title>{{complete.title}}</mat-card-title>-->
+          <!--<mat-card-subtitle>{{complete.description}}</mat-card-subtitle>-->
+        <!--</mat-card-header>-->
+      <!--</mat-card>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="done-container column-container">-->
+    <!--<div class="list"-->
+         <!--cdkDropList-->
+         <!--#doneList="cdkDropList"-->
+         <!--[cdkDropListData]="completed"-->
+         <!--(cdkDropListDropped)="onDrop($event)">-->
+      <!--<h2>Tech learned</h2>-->
+      <!--<mat-card *ngFor="let complete of completed" cdkDrag>-->
+        <!--<mat-card-header>-->
+          <!--<mat-card-title>{{complete.title}}</mat-card-title>-->
+          <!--<mat-card-subtitle>{{complete.description}}</mat-card-subtitle>-->
+        <!--</mat-card-header>-->
+      <!--</mat-card>-->
+    <!--</div>-->
+  <!--</div>-->
+</div>
